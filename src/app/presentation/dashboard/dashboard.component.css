@@ -98,12 +98,12 @@ b{
 }
 
 aside{
-    height: 100vh;
-
+    height: 100vh;  
+    
 }
 
 aside .top{
-
+    
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -127,7 +127,7 @@ aside .close{
 /*============= SIDEBAR =============*/
 
 aside .sidebar{
-
+    
     display: flex;
     flex-direction: column;
     height: 86vh;
@@ -275,10 +275,10 @@ main .insights .progress{
     width: 92px;
     height: 92px;
     border-radius: 50%;
-}
+}   
 
 main .insights svg{
-
+    
     width: 7rem;
     height: 7rem;
 }
@@ -327,7 +327,7 @@ main .insights small{
     display: block;
 }
 
-main .insights .progress .number span{
+main .insights .progress .number span{  
     color: #fff;
     font-size: 2rem;
     font-weight: 500;
@@ -399,8 +399,8 @@ h1 {
     margin: 4px 2px;
     cursor: pointer;
     bottom: 10px;
-
-
+    
+    
 }
 
 .btn.cancel {
@@ -475,7 +475,7 @@ h1 {
 
 .grayscale {
     filter: grayscale(100%);
-    pointer-events: none;
+    pointer-events: none; 
     opacity: 0.5;
 }
 
@@ -505,7 +505,7 @@ main .recent-orders{
     margin-top: 2rem;
 }
 
-main .recent-orders h2{
+main .recent-orders h2{ 
     margin-bottom: 0.8rem;
 }
 
@@ -544,7 +544,7 @@ main table tbody tr:last-child td{
     display: flex;
     justify-content: end;
     gap: 2rem;
-
+    
 }
 
 .right .top button{
@@ -608,7 +608,7 @@ main table tbody tr:last-child td{
     box-shadow: 0 2rem 3rem rgba(132, 139, 200, 0.18);
 }
 
-.right .recent-updates .update:hover{
+.right .recent-updates .update:hover{   
     box-shadow: none;
 }
 
@@ -675,24 +675,24 @@ main table tbody tr:last-child td{
 
     main .recent-orders h2 table{
         width: 83vw;
-    }
-
+    }   
+    
     main table thead tr th:last-child,
     main table thead tr th:first-child{
         display: none;
     }
 
-
+   
 }
 
 
 /*============= MEDIA QUERIES =============*/
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px){      
 
     .container{
         width: 100%;
         grid-template-columns: 1fr;
-
+        
     }
     aside{
         position: fixed;
@@ -705,7 +705,7 @@ main table tbody tr:last-child td{
         padding-right: 1.8rem;
         display: none;
         animation: showMenu 400ms ease forwards;
-
+        
     }
 
     @keyframes showMenu {
@@ -720,7 +720,7 @@ main table tbody tr:last-child td{
 
     aside .logo h2{
         display: inline;
-
+        
     }
 
     aside .sidebar h3{
@@ -759,17 +759,17 @@ main table tbody tr:last-child td{
     }
 
     .tab{
-
+       
     }
 
-
+    
 
     .right{
         width: 94%;
         margin: 0 auto 4rem;
     }
 
-    .right .top{
+    .right .top{    
         position: fixed;
         top: 0;
         left: 0;
@@ -790,7 +790,7 @@ main table tbody tr:last-child td{
 
     .right .profile .info{
         display: none;
-    }
+    }   
 
     .right .top button{
         display: inline-block;
@@ -803,9 +803,9 @@ main table tbody tr:last-child td{
 
     .right .top button span{
         font-size: 2rem;
-
+       
     }
-
+    
 }
 
 .modal {
@@ -892,5 +892,4 @@ main table tbody tr:last-child td{
     color: white;
     pointer-events: none;
 }
-
 

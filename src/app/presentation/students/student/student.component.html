@@ -1,0 +1,72 @@
+
+
+
+
+<main>
+    <div class="recent-orders" id="dashboard">
+        <div class="header">
+            <h2>Elèves </h2>
+            <a routerLink="/add-student" class="new-student-btn">+ Nouvel élève</a>
+        </div>
+        <form class="" method="GET">
+            <input type="text" id="myInput" name="search" value="" placeholder="Rechercher...">
+            <button onclick="" class="new-student-btn"> Rechercher</button>
+
+        </form>
+
+
+
+        <table id="MyTable" class="tab">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prènom</th>
+                    <th>Date naissance</th>
+                    <th>Télephone</th>
+                    <th>Genre</th>
+                    <th>Numero du pere</th>
+
+                    <th>Matricule</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="pagination">
+
+                <tr >
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                    <td >
+                        <a routerLink="/modify-student"><button class="btn edit">Modifier</button></a>
+                        <button id="deleteButton" class="btn delete"   >Supprimer</button>
+                    </td>
+
+                </tr>
+
+
+            </tbody>
+
+
+        </table>
+
+
+
+
+    </div>
+    <div class="alert">
+        <p>ATTENTION !!</p>
+        <p>Voulez-vous vraiment supprimer cet éleve?</p>
+        <button id="confirmDelete">Oui</button>
+        <button id="cancelDelete">Non</button>
+    </div>
+
+
+</main>
+
+
+

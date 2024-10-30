@@ -1,0 +1,66 @@
+<main>
+
+                <div class="recent-orders">
+                    <div class="header">
+                        <h2>Professeurs (2)</h2>
+                        <a routerLink="/add-teacher" class="new-student-btn">+ Nouveau Professeur</a>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Prènom</th>
+                                <th>Matière</th>
+                                <th>Vacant</th>
+                                <th>Age</th>
+                                <th>Télephone</th>
+                                <th>Ville</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Koffi</td>
+                                <td>George</td>
+                                <td>Math</td>
+                                <td>Non</td>
+                                <td>40</td>
+                                <td>0712345678</td>
+                                <td>Touba</td>
+                                <td >
+                                    <a routerLink="/modify-teacher">
+                                      <button  class="btn edit">Modifier</button>
+                                    </a>
+
+                                    <button id="deleteButton" class="btn delete">Supprimer</button>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td>ATTA</td>
+                                <td>Flora</td>
+                                <td>Physique</td>
+                                <td>Oui</td>
+                                <td>37</td>
+                                <td>0712345678</td>
+                                <td>Bouake</td>
+                                <td >
+                                    <a routerLink="/modify-teacher">
+                                      <button  class="btn edit">Modifier</button>
+                                    </a>
+                                    <button id="deleteButton" class="btn delete">Supprimer</button>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="alert">
+                    <p>ATTENTION !!</p>
+                    <p>Voulez-vous vraiment supprimer ce professeur?</p>
+                    <button id="confirmDelete">Oui</button>
+                    <button id="cancelDelete">Non</button>
+                </div>
+            </main>
