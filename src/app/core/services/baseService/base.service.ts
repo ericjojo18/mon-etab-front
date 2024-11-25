@@ -1,7 +1,8 @@
-import { Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import { environmentDev} from '../../../../environments/environment.dev';
 import {HttpClient, HttpHeaders,} from '@angular/common/http';
-import {catchError, shareReplay, throwError} from 'rxjs';
+import {catchError, Observable, shareReplay, throwError} from 'rxjs';
+import {LocalStorageService} from '../localStorage/localStorage.service';
 
 
 @Injectable({
@@ -10,32 +11,52 @@ import {catchError, shareReplay, throwError} from 'rxjs';
 
 export class BaseService {
   private baseUrl: string = environmentDev.baseUrl;
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient,
+              private localService: LocalStorageService
+              ) {}
 
-  private getHeader(){
+  private getHeaders(){
+    //const localService: LocalStorageService = inject(LocalStorageService);
+    const token: string | null = this.localService.getToken();
     return new HttpHeaders({
-      'Access-Control-Allow-Origin': '*',
-    })
+      'Content-type': 'application/json',
+      Authorization: `Bearer ${token}`
+    });
   }
 
-  getOne(endPoint: string, id: number) {
+  getOne<T>(endPoint: string, id: number): Observable<T> {
     const url: string = `${this.baseUrl}/${endPoint}/${id}`
-    return this.http.get(url).pipe(catchError(this.handleError));
+    return this.http.get<T>(url).pipe(catchError(this.handleError));
   }
 
-  getAll(endPoint: string){
+  //getAll(endPoint: string): Observable<any>{
+    //const url: string = `${this.baseUrl}/${endPoint}`
+    //return this.http.get(url).pipe(shareReplay(1), catchError(this.handleError));
+  //}
+
+  getAll<T>(endPoint: string): Observable<T>{
     const url: string = `${this.baseUrl}/${endPoint}`
-    const header: HttpHeaders = this.getHeader()
-    return this.http.get(url).pipe(shareReplay(1), catchError(this.handleError));
+    return this.http.get<T>(url).pipe(shareReplay(1), catchError(this.handleError));
   }
 
-  post(endPoint: string, data: any) {
+  post<T>(endPoint: string, data: any): Observable<T> {
     const url: string = `${this.baseUrl}/${endPoint}`;
-    const header: HttpHeaders = this.getHeader()
-    return this.http.post(url, data).pipe(catchError(this.handleError));
+    const headers: HttpHeaders = this.getHeaders()
+    return this.http.post<T>(url, data).pipe(catchError(this.handleError));
 
   }
+
+  edit<T>(endPoint: string, id:any, data:any): Observable<T>{
+    const url: string = `${this.baseUrl}/${endPoint}/${id}/`;
+    const headers: HttpHeaders = this.getHeaders()
+    return this.http.put<T>(url, data).pipe(catchError(this.handleError));
+  }
+  delete(endPoint: string, id: number) {
+      const url: string = `${this.baseUrl}/${endPoint}/${id}`;
+      const headers: HttpHeaders = this.getHeaders();
+      return this.http.delete(url, {headers}).pipe(catchError(this.handleError));
+    }
+
 
   private handleError(error: any) {
     let errorMessage: string = 'Oups ! quelque chose a mal tourné.';

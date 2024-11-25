@@ -1,4 +1,4 @@
 export const environmentDev = {
-  baseUrl: '/host/api',
+  baseUrl: 'http://localhost:8000',
   production: false
 }

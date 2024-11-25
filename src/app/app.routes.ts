@@ -15,10 +15,13 @@ import { TeacherComponent } from './presentation/teachers/teacher/teacher.compon
 import {AddTeacherComponent} from './presentation/teachers/add-teacher/add-teacher.component';
 import { ModifyTeacherComponent} from './presentation/teachers/modify-teacher/modify-teacher.component';
 //user
-import { UserComponent } from './presentation/users/user/user.component';
+import { ListUserComponent } from './presentation/users/list-user/list-user.component';
 import { AddUserComponent } from './presentation/users/add-user/add-user.component';
 import { ModifyUserComponent } from './presentation/users/modify-user/modify-user.component';
 import { HeaderComponent } from './presentation/header/header.component';
+import {ListRoleComponent} from './presentation/roles/list-role/list-role.component';
+import {AddRoleComponent} from './presentation/roles/add-role/add-role.component';
+import {ModifyRoleComponent} from './presentation/roles/modify-role/modify-role.component';
 
 
 
@@ -28,6 +31,7 @@ export const routes: Routes = [
     { path: '', component: HeaderComponent,
         children: [
             { path: 'dashboard', title:"Dashboard", component: DashboardComponent },
+             { path: 'app-setting', component: AppSettingComponent },
             { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
             { path: 'report', component: ReportComponent },
             { path: 'school', component: SchoolComponent },
@@ -40,10 +44,15 @@ export const routes: Routes = [
             { path: 'add-teacher', component: AddTeacherComponent},
             { path: 'modify-teacher', component: ModifyTeacherComponent},
           //user
-            { path: 'user', component: UserComponent },
+            { path: 'user', component: ListUserComponent },
             { path: 'add-user', component: AddUserComponent},
             { path: 'modify-user', component: ModifyUserComponent},
-            { path: 'app-setting', component: AppSettingComponent },
+          //role
+            {path: 'role', component:ListRoleComponent},
+            {path: 'add-role', component:AddRoleComponent},
+            {path: 'modify-role/:id', component:ModifyRoleComponent}
+
+
     ] },
 
 ];
